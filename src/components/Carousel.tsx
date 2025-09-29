@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 
 interface CarouselProps<T> {
   items: T[];
-  // ** IMPORTANTE: Aquí la corrección clave **
   renderItem: (item: T, isSelected: boolean) => React.ReactNode;
   itemWidth: number;
   gap?: number;
@@ -89,7 +88,7 @@ export default function Carousel<T extends { id: string }>(
 
   useEffect(() => {
     if (autoScrollEnabled && !isHovered) {
-      startTimeRef.current = null; 
+  
       animationFrameId.current = requestAnimationFrame(animateScroll);
     } else {
       if (animationFrameId.current) {
